@@ -3,13 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const palindromeButton = document.getElementById('palindrome-button');
   const palindromeResultContainer = document.getElementById('palindrome-result-container');
   
+  // Helper function to normalize characters (remove accents and convert to lowercase)
+  const normalizeString = (str) => {
+    return str
+      .toLowerCase()
+      .normalize("NFD") // Decompose combined graphemes (e.g., á -> a + ´)
+      .replace(/[\u0300-\u036f]/g, "") // Remove diacritical marks
+      .replace(/\s+/g, ''); // Remove all spaces
+  };
+
   palindromeButton.addEventListener('click', () => {
-    const word = palindromeInput.value.toLowerCase().trim();
     const originalWord = palindromeInput.value.trim();
+    const word = normalizeString(originalWord);
 
     palindromeResultContainer.innerHTML = '';
 
-    if (word === '') {
+    if (originalWord === '') {
       const alertHTML = `
         <div role="alert" class="alert alert-error">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
@@ -105,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const vowelButton = document.getElementById('vowel-button');
   const vowelResultContainer = document.getElementById('vowel-result-container');
 
-  const normalizeChar = (char) => {
+  const normalizeCharForVowels = (char) => {
     const accentMap = {
       'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u'
     };
@@ -132,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const baseVowels = 'aeiou';
 
     for (let char of phrase) {
-      const normalized = normalizeChar(char);
+      const normalized = normalizeCharForVowels(char);
       if (baseVowels.includes(normalized)) {
         vowelCounts[normalized] = (vowelCounts[normalized] || 0) + 1;
       }
