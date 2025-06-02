@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="text-center my-8">
+    <h1 class="text-4xl font-bold">Juan Sebastian Villegas Contreras</h1>
+    <h2 class="text-2xl text-gray-600">Laboratorio: Tecnologías JavaScript</h2>
+  </div>
+  <div class="w-3xl flex flex-col gap-6 mx-auto p-6">
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h2 class="card-title">Palíndromos</h2>
+        <p>Detecta si la cadena de entrada es un palíndromo.</p>
+        <div class="form-control">
+          <input type="text" id="palindrome-input" placeholder="Escribe una palabra" class="input input-bordered w-full max-w-xs" />
+        </div>
+        <div class="card-actions justify-end">
+          <button id="palindrome-button" class="btn btn-primary">Verificar</button>
+        </div>
+        <div id="palindrome-result-container" class="mt-2"></div>
+      </div>
+    </div>
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h2 class="card-title">Mayor</h2>
+        <p>Detecta el número mayor entre dos números.</p>
+        <div class="form-control">
+          <div class="flex gap-2">
+            <input type="number" id="number-one-input" placeholder="Primer número" class="input input-bordered w-full max-w-xs" />
+            <input type="number" id="number-two-input" placeholder="Segundo número" class="input input-bordered w-full max-w-xs" />
+          </div>
+        </div>
+        <div class="card-actions justify-end">
+          <button id="compare-button" class="btn btn-primary">Comparar</button>
+        </div>
+        <div id="compare-result-container" class="mt-2"></div>
+      </div>
+    </div>
+    <div class="card bg-base-100 shadow-md">
+      <div class="card-body">
+        <h2 class="card-title">Vocales</h2>
+        <p>Muestra las vocales en una frase y las cuenta.</p>
+        <div class="form-control">
+          <input type="text" id="phrase-input" placeholder="Escribe una frase" class="input input-bordered w-full max-w-xs" />
+        </div>
+        <div class="card-actions justify-end">
+          <button id="vowel-button" class="btn btn-primary">Mostrar y Contar Vocales</button>
+        </div>
+        <div id="vowel-result-container" class="mt-4 flex flex-wrap gap-4 justify-center items-baseline"></div>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
